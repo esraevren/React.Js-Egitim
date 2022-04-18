@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resim Galerisi</title>
+    <style>
+        
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+        }
+
+        div#link{
+            display: grid;
+            align-items: center;
+            grid-template-columns: repeat(3, 1fr);
+            column-gap: 10px;
+            row-gap: 1em;
+        }
+
+        img{
+        width: 100%;
+        height: auto;
+        }
+
+        img:hover{
+        opacity: 0.7;
+        cursor: pointer;
+        transform: translateY(-2px);
+        box-shadow: 3px 3px 10px black;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1 style="text-align: center;">Resim Galerisi</h1>
+    <div id="link"></div>
+    
+
+
+
+    <script>
+        //--------------------Random resim alınacak sitenin linki-----------------------------
+        const link="https://source.unsplash.com/collection"
+        
+
+        //--------------------------img etiketleri append edildi-------------------------------
+        for(i=0; i<15; i++) {
+        let img=document.createElement("img")
+        let linkDom=document.getElementById("link")
+        linkDom.appendChild(img)
+        
+        document.querySelectorAll("img").forEach((img) => {
+        img.src = `${link}/${Math.floor(Math.random()*100)}/300x300`;
+      })
+        }
+    </script>
+</body>
+</html>
